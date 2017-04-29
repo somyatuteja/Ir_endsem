@@ -35,7 +35,7 @@ inp=input("Please enter topic to get tweets")
 # Here we set it to stop after getting 1000 tweets.
 # You don't have to set it to stop, but can continue running
 # the Twitter API to collect data for days or even longer.
-text_file = open('E:\Output.txt', 'w')
+text_file = open('Output.txt', 'w')
 tweet_count = 100
 iterator = twitter_stream.statuses.filter(track=inp, language='en')
 
@@ -69,6 +69,6 @@ text_file.close()
 print ("\n")
 print ("SUMMARY")
 ss = summarize.SimpleSummarizer()
-file=open('E:\Output.txt', 'r')
+file=open('Output.txt', 'r')
 data=file.read()
-print(ss.summarize(data,5))
+print(ss.summarize(data,3,inp))

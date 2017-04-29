@@ -11,7 +11,7 @@ class SimpleSummarizer:
                               input.find(s1))
         return output_sentences
 
-    def get_summarized(self, input, num_sentences):
+    def get_summarized(self, input, num_sentences, query):
         # TODO: allow the caller to specify the tokenizer they want
         # TODO: allow the user to specify the sentence tokenizer they want
 
@@ -22,12 +22,12 @@ class SimpleSummarizer:
                       for word in tokenizer.tokenize(input)]
         words = [word for word in base_words if word not in stopwords.words()]
         word_frequencies = FreqDist(words)
-        print (words)
-        print (word_frequencies.items())
+      #  print (words)
+       # print (word_frequencies.items())
         # now create a set of the most frequent words
         most_frequent_words = [pair[0] for pair in
-                               list(word_frequencies.items()) if pair[1] >1 and pair[0] != "modi"]
-        print(most_frequent_words)
+                               list(word_frequencies.items()) if pair[1] >1 and pair[0] != query]
+       # print(most_frequent_words)
         # break the input up into sentences.  working_sentences is used
         # for the analysis, but actual_sentences is used in the results
         # so capitalization will be correct.
@@ -54,5 +54,5 @@ class SimpleSummarizer:
         # sort the output sentences back to their original order
         return output_sentences
 
-    def summarize(self, input, num_sentences):
-        return " ".join(self.get_summarized(input, num_sentences))
+    def summarize(self, input, num_sentences, query):
+        return " ".join(self.get_summarized(input, num_sentences, query))
