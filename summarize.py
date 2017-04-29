@@ -26,7 +26,7 @@ class SimpleSummarizer:
        # print (word_frequencies.items())
         # now create a set of the most frequent words
         most_frequent_words = [pair[0] for pair in
-                               list(word_frequencies.items()) if pair[1] >1 and pair[0] != query]
+                               list(word_frequencies.items()) if pair[1] > 10 and pair[0] != query]
        # print(most_frequent_words)
         # break the input up into sentences.  working_sentences is used
         # for the analysis, but actual_sentences is used in the results
