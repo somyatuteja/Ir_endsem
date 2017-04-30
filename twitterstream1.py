@@ -59,5 +59,6 @@ class twitterSummary:
         file=open('Output.txt', 'r')
         data=file.read()
         summ=ss.summarize(data,5,inp)
-        print(summ)
-        return summ
+        summary="\n".__add__(summ)
+        print(summary)
+        return summary

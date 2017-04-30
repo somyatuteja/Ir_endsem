@@ -1,6 +1,8 @@
 import tkinter
 from tkinter import *
 import twitterstream1
+import twstream
+import tweet3
 
 class TwitterGUI(Frame):
     def __init__(self, master=NONE):
@@ -30,13 +32,26 @@ class TwitterGUI(Frame):
         self.summaryTA.pack()
         self.summaryTA.insert(1.0, "Summary")
         self.summaryTA.place(x=20, y=200)
+        self.sentimentTA = Text(top, height=28, width=100)
+        self.sentimentTA.pack()
+        self.sentimentTA.insert(1.0, "Upcoming Tweets")
+        self.sentimentTA.place(x=550, y=200)
 
     def TweetFetch(self):
          self.input = self.TB1.get()
          print(self.input)
-         ts = twitterstream1.twitterSummary()
+         ts = twstream.twiSummary()
          summary=ts.getSummary(self.input)
+         print(summary)
          self.summaryTA.insert(END,summary)
+         self.summaryTA.pack
+         auth = tweet3.Auth(self.input)
+         for num in range(1,20):
+            print(num)
+            str=tweet3.GetTweetWithSentiment(auth)
+            self.sentimentTA.insert(END,str)
+            self.summaryTA.pack
+
 top = tkinter.Tk()
 top.geometry('1650x850+100+100')
 app=TwitterGUI(top)
