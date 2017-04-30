@@ -3,7 +3,7 @@ from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
 import nltk.data
 
-nltk.download('stopwords')
+#nltk.download('stopwords')
 
 class SimpleSummarizer:
     def reorder_sentences(self, output_sentences, input):

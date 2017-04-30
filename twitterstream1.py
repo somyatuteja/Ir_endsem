@@ -5,15 +5,8 @@ try:
 except ImportError:
     import simplejson as json
 import re
+import requests
 import summarize
-from sumy.parsers.html import HtmlParser
-from sumy.parsers.plaintext import PlaintextParser
-from sumy.nlp.tokenizers import Tokenizer
-from sumy.summarizers.lsa import LsaSummarizer as Summarizer
-from sumy.nlp.stemmers import Stemmer
-from sumy.utils import get_stop_words
-from nltk.tokenize import word_tokenize
-# Import the necessary methods from "twitter" library
 from twitter import Twitter, OAuth, TwitterHTTPError, TwitterStream
 #import nltk
 #nltk.download('punkt')
